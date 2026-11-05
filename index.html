@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RE MC - tempat download add-on, texture pack, dan map Minecraft Bedrock.">
+  <title>RE MC | Minecraft Downloads</title>
+  <style>
+    :root{--bg:#090f0d;--panel:#111b17;--panel2:#17251e;--green:#76c94b;--green2:#a1e56c;--text:#f4f7f4;--muted:#aab8ae;--line:#26372d}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 80% 0%,#183322 0,transparent 34%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none} button,input{font:inherit}
+    .wrap{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:#080d0bf0;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:24px;letter-spacing:-1px}
+    .brand img{width:48px;height:48px;object-fit:cover;border-radius:50%;border:2px solid #d5e4d9}
+    .brand span{color:var(--green)}
+    .brand small{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:0}
+    nav{display:flex;gap:22px;color:#d5dfd8;font-size:14px}
+    nav a:hover{color:var(--green2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#10200f;padding:11px 16px;border:0;border-radius:9px;font-weight:800;cursor:pointer;transition:.2s}
+    .btn:hover{background:var(--green2);transform:translateY(-1px)}
+    .hero{position:relative;overflow:hidden;padding:76px 0 64px;background:linear-gradient(90deg,#07100bf2 0%,#07100bdb 47%,#07100b75 100%),url('https://images.unsplash.com/photo-1607513746994-51f730a44832?auto=format&fit=crop&w=1800&q=85') center/cover}
+    .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:24px;min-height:300px}
+    .eyebrow{display:inline-block;color:var(--green2);border:1px solid #4b813d;background:#18321e;padding:7px 12px;border-radius:7px;font-size:12px;font-weight:800;letter-spacing:.5px}
+    h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-3px;margin:18px 0}
+    h1 span{color:var(--green)}
+    .lead{color:#d0d9d2;max-width:490px;line-height:1.7}
+    .search{display:flex;align-items:center;gap:10px;margin-top:25px;background:#121c18;border:1px solid #35463b;border-radius:10px;padding:0 15px;max-width:450px}
+    .search input{width:100%;padding:15px 0;background:none;border:0;outline:0;color:white}
+    .hero-logo{display:flex;justify-content:center;align-items:center}
+    .hero-logo img{width:min(290px,80%);aspect-ratio:1;object-fit:cover;border-radius:28px;border:3px solid #7bc950;box-shadow:0 0 65px #63c44755;filter:grayscale(1)}
+    .categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px auto 42px}
+    .cat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:17px;text-align:left;color:white;cursor:pointer}
+    .cat strong{display:block;font-size:15px}.cat small{color:var(--muted)}
+    .cat.active,.cat:hover{border-color:var(--green);background:#1a3020}
+    .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
+    h2{font-size:21px;margin:0;border-left:4px solid var(--green);padding-left:12px}
+    .count{color:var(--muted);font-size:13px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(145deg,#17221c,#0e1512);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}
+    .card:hover{transform:translateY(-4px);border-color:#4c7548}
+    .thumb{height:175px;display:grid;place-items:center;background:linear-gradient(135deg,#244a35,#101b15);font-size:56px}
+    .thumb.addon{background:linear-gradient(135deg,#123b4b,#13251f)}
+    .thumb.texture{background:linear-gradient(135deg,#5a482b,#1a281c)}
+    .thumb.map{background:linear-gradient(135deg,#365d36,#1b3023)}
+    .card-body{padding:16px}
+    .card-title{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font-weight:800;font-size:18px}
+    .tag{font-size:10px;font-weight:900;padding:5px 8px;border-radius:6px;background:#254c2b;color:#a9f17e}
+    .desc{font-size:13px;color:var(--muted);line-height:1.6;min-height:42px}
+    .meta{display:flex;gap:12px;flex-wrap:wrap;color:#b8c5bc;font-size:11px;margin:14px 0}
+    .download{width:100%}
+    .empty{display:none;text-align:center;color:var(--muted);padding:40px 10px;border:1px dashed var(--line);border-radius:12px}
+    footer{border-top:1px solid var(--line);margin-top:55px;padding:25px 0;color:var(--muted);font-size:13px;text-align:center}
+    footer b{color:var(--green)}
+    @media(max-width:760px){nav{display:none}.hero{padding:52px 0}.hero-inner{grid-template-columns:1fr}.hero-logo{display:none}.categories{grid-template-columns:repeat(2,1fr);gap:9px}.cat{padding:13px}.cards{grid-template-columns:1fr}.thumb{height:190px}.nav{height:66px}.brand{font-size:21px}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#"><img src="assets/re-logo.jpg" alt="Logo RE"><div><span>RE</span> MC<small>Minecraft Downloads</small></div></a>
+  <nav><a href="#">Home</a><a href="#uploads">Add-on</a><a href="#uploads">Texture Pack</a><a href="#uploads">Map</a><a href="#about">About</a></nav>
+  <a class="btn" href="#uploads">↓ Lihat Download</a>
+</div></header>
+
+<section class="hero"><div class="wrap hero-inner">
+  <div>
+    <span class="eyebrow">MINECRAFT BEDROCK EDITION</span>
+    <h1>Welcome to<br><span>RE</span> MC</h1>
+    <p class="lead">Tempat download add-on, texture pack, map, dan berbagai kreasi Minecraft Bedrock.</p>
+    <label class="search">⌕ <input id="searchInput" type="search" placeholder="Cari file Minecraft..." aria-label="Cari file"></label>
+  </div>
+  <div class="hero-logo"><img src="assets/re-logo.jpg" alt="Logo RE MC"></div>
+</div></section>
+
+<main class="wrap">
+  <div class="categories" aria-label="Filter kategori">
+    <button class="cat active" data-filter="all"><strong>▦ Semua File</strong><small>Semua kategori</small></button>
+    <button class="cat" data-filter="addon"><strong>✣ Add-on</strong><small>Mod & add-on</small></button>
+    <button class="cat" data-filter="texture"><strong>▧ Texture Pack</strong><small>Resource pack</small></button>
+    <button class="cat" data-filter="map"><strong>▤ Map</strong><small>World & map</small></button>
+  </div>
+
+  <section id="uploads">
+    <div class="section-head"><h2>Latest Uploads</h2><span class="count" id="resultCount">1 file</span></div>
+    <div class="cards" id="cards">
+      <article class="card" data-category="addon" data-name="holoprint">
+        <div class="thumb addon">🧊</div>
+        <div class="card-body">
+          <div class="card-title">Holoprint <span class="tag">ADD-ON</span></div>
+          <p class="desc">Add-on Holoprint untuk Minecraft Bedrock Edition.</p>
+          <div class="meta"><span>🎮 Bedrock</span><span>📦 File add-on</span><span>🟢 RE MC</span></div>
+          <!-- Simpan file Holoprint di folder downloads, lalu ubah nama file pada href di bawah. -->
+          <a class="btn download" href="downloads/Holoprint.mcaddon" download>↓ Download Holoprint</a>
+        </div>
+      </article>
+    </div>
+    <div class="empty" id="empty">File tidak ditemukan. Coba kata pencarian lain.</div>
+  </section>
+  <footer id="about">© 2026 <b>RE MC</b>. Dibuat untuk komunitas Minecraft Bedrock.<br>Pastikan kamu memiliki izin sebelum membagikan ulang karya orang lain.</footer>
+</main>
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const cards = [...document.querySelectorAll('.card')];
+  const filters = [...document.querySelectorAll('.cat')];
+  let activeFilter = 'all';
+  function updateCards(){
+    const q = searchInput.value.toLowerCase().trim();
+    let shown = 0;
+    cards.forEach(card => {
+      const matchesText = card.dataset.name.includes(q) || card.innerText.toLowerCase().includes(q);
+      const matchesCategory = activeFilter === 'all' || card.dataset.category === activeFilter;
+      const visible = matchesText && matchesCategory;
+      card.style.display = visible ? '' : 'none';
+      if(visible) shown++;
+    });
+    document.getElementById('resultCount').textContent = shown + ' file';
+    document.getElementById('empty').style.display = shown ? 'none' : 'block';
+  }
+  searchInput.addEventListener('input', updateCards);
+  filters.forEach(btn => btn.addEventListener('click', () => {
+    filters.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    updateCards();
+  }));
+</script>
+</body>
+</html>
